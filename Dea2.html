@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Elsa</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Dancing Script', cursive, sans-serif;
+            background: linear-gradient(to bottom, #e0f7fa, #b3e5fc);
+            color: #004d61;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        section {
+            display: none;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        section.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1, h2, p {
+            margin: 10px auto;
+            animation: fadeIn 2s ease;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background: #007bb5;
+            border-radius: 20px;
+            text-decoration: none;
+            animation: glow 2s infinite alternate;
+        }
+
+        a:hover {
+            background: #005f91;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 10px #80d8ff; }
+            to { box-shadow: 0 0 20px #80d8ff; }
+        }
+
+        /* Cake Styles */
+        .cake {
+            position: relative;
+            width: 250px;
+            margin: 0 auto;
+        }
+
+        .cake .base {
+            width: 250px;
+            height: 120px;
+            background: linear-gradient(to bottom, #ff80ab, #ff4081);
+            border-radius: 0 0 15px 15px;
+        }
+
+        .cake .top {
+            width: 200px;
+            height: 60px;
+            background: linear-gradient(to bottom, #ff9e80, #ff6e40);
+            border-radius: 15px 15px 0 0;
+            margin: 0 auto;
+            position: relative;
+            top: -30px;
+        }
+
+        .cake .text {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        .cake .candles {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .candle {
+            width: 10px;
+            height: 50px;
+            background: #ffccbc;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .candle::before {
+            content: '';
+            width: 8px;
+            height: 20px;
+            background: linear-gradient(to bottom, #ffeb3b, #ff9800);
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            animation: flicker 0.5s infinite alternate;
+        }
+
+        .candle.blow-out::before {
+            animation: none;
+            background: transparent;
+        }
+
+        /* Snowflake Styles */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #fff;
+            font-size: 1.5rem;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh);
+            }
+        }
+
+        @keyframes sway {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1 -->
+    <section id="page1" class="active">
+        <h1>Halo, Dea Elsa 🌨️</h1>
+        <p>Kali ini, biarkan aku menceritakan sesuatu untukmu...</p>
+        <a href="javascript:void(0)" onclick="nextPage(2)">Klik di sini ❄️</a>
+    </section>
+
+    <!-- Page 2 -->
+    <section id="page2">
+        <h2>Dea, Ratu Saljuku</h2>
+        <p>Aku tahu, selama ini aku sering bertingkah seperti anak kecil. Marah gak jelas, diem-dieman, dan kadang bikin kamu bingung karena hal sepele. Aku sadar aku masih jauh dari sempurna. Maaf ya sayang, kalau aku bikin kamu kesal. Tapi percayalah, aku selalu ingin jadi lebih baik untukmu. Kalau aku keterlaluan, tabok aja (tapi pelan-pelan ya, hehe)! ❤️</p>
+        <a href="javascript:void(0)" onclick="nextPage(3)">Klik untuk lanjut 🌨️</a>
+    </section>
+
+    <!-- Page 3 -->
+    <section id="page3">
+        <h2>Sesuatu Untukmu!</h2>
+        <p>Ini hadiah kecil untuk kamu yang selalu membuat hidupku lebih cerah. Bersiaplah, ya! 🌟</p>
+        <a href="javascript:void(0)" onclick="nextPage(4)">Lihat Hadiah 🎁</a>
+    </section>
+
+    <!-- Page 4 -->
+    <section id="page4">
+        <div class="cake">
+            <div class="top"></div>
+            <div class="base">
+                <div class="text">Happy Sweet 21st 🎉</div>
+            </div>
+            <div class="candles">
+                <div class="candle"></div>
+                <div class="candle"></div>
+                <div class="candle"></div>
+            </div>
+        </div>
+        <p>Lilin ini menyinari kue hanya sebentar, tetapi kamu telah menyinari hidupku selamanya. Tiup lilinnya ya, sayang. Aku harap semua harapanmu terkabul! 🎂</p>
+        <a id="nextBtn" href="javascript:void(0)" onclick="nextPage(5)" style="display:none;">Klik untuk meniup lilin 🎉</a>
+    </section>
+
+    <!-- Page 5 -->
+    <section id="page5">
+        <h1>Selamat Ulang Tahun ke-21! 🎉</h1>
+        <p>
+            Dea Elsa, aku bangga bisa menemani kamu selama ini. Kamu adalah orang yang selalu bikin hidupku penuh warna. Semoga panjang umur, sehat selalu, dan bahagia. Semoga aku selalu bisa jadi orang yang ada di sampingmu, baik di saat senang maupun susah. Aku cinta kamu, sayang! ❤️
+        </p>
+        <a href="javascript:void(0)" onclick="restart()">Ulangi Lagi! ❄️</a>
+    </section>
+
+    <script>
+        let currentPage = 1;
+
+        function nextPage(page) {
+            document.getElementById(`page${currentPage}`).classList.remove('active');
+            document.getElementById(`page${page}`).classList.add('active');
+            currentPage = page;
+
+            if (page === 4) {
+                setTimeout(() => {
+                    document.querySelectorAll('.candle').forEach(candle => candle.classList.add('blow-out'));
+                    createSnowfall();
+                    document.getElementById('nextBtn').style.display = 'inline-block';
+                }, 3000);
+            }
+        }
+
+        function createSnowfall() {
+            const snowContainer = document.createElement('div');
+            for (let i = 0; i < 100; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.textContent = '❄️';
+                snowflake.style.left = `${Math.random() * 100}vw`;
+                snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                snowContainer.appendChild(snowflake);
+            }
+            document.body.appendChild(snowContainer);
+        }
+
+        function restart() {
+            currentPage = 1;
+            document.querySelectorAll('section').forEach(section => section.classList.remove('active'));
+            document.getElementById('page1').classList.add('active');
+        }
+    </script>
+</body>
+</html>
